@@ -86,15 +86,15 @@ void setup()
  void loop()
  {
       breathPressure = analogRead(breathPin);
-      // DEBUG Serial.println(breathPressure);
+       // DEBUG Serial.println(breathPressure);
 
-      if (breathPressure > (ambientPressure + 20)) {
+      if (breathPressure > (ambientPressure + 4)) {
           currtouched = cap.touched();
       // DEBUG Serial.println(currtouched);
 
 
 
-      if (currtouched == 63 ) {midiOut.sendNoteOn(62, (breathPressure), 1);}
+      if (currtouched == 63 ) {playNote(62, breathPressure, lastnote); lastnote = 62; }
 
       else if ( (currtouched & hole1) == 0 ) { playNote(71, breathPressure, lastnote); lastnote = 71;} 
       else if ( (currtouched & hole2) == 0 ) { playNote(69, breathPressure, lastnote); lastnote = 69;} 
