@@ -86,11 +86,13 @@ void setup()
  void loop()
  {
       breathPressure = analogRead(breathPin);
-       // DEBUG Serial.println(breathPressure);
+       //DEBUG 
+       Serial.println(breathPressure);
 
       if (breathPressure > (ambientPressure + 4)) {
           currtouched = cap.touched();
-      // DEBUG Serial.println(currtouched);
+      // DEBUG 
+      Serial.println(currtouched);
 
 
 
